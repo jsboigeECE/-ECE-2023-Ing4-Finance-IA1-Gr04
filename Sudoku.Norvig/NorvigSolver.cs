@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace Sudoku.Norvig
 {
+// implementation de la classe
     public class NorvigSolver : ISudokuSolver
     {
         public SudokuGrid Solve(SudokuGrid s)
