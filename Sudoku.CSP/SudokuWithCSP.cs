@@ -125,39 +125,21 @@ namespace SudokuWithCSP
         }
 
         public List<int> Cell_Neighboor(SudokuGrid s, int cases)
-        {
-            bool test;
-            List<int> ma_list = new List<int>();
-            List<int> list_voisin = new List<int>();
-            var voisins = (SudokuGrid.CellNeighbours[cases / 9][cases % 9]);//liste des voisins de cas en tuple
-            for (int j = 0; j < voisins.Count(); j++)
-            {
-                var voisin = voisins[j];//le iémé voisin en tuple
-                var indexVoisin = voisin.row * 9 + voisin.column;// Voisin en index de 0-81
-                list_voisin.Add(indexVoisin);
-            }
-                for (int i = 0; i < voisins.Count(); i++)
-             {
-                var voisin = voisins[i];//le iémé voisin en tuple
-                var indexVoisin = voisin.row * 9 + voisin.column;// Voisin en index de 0-81
+       {
+           bool test;
+           int teste = 0;
+           List<int> ma_list = new List<int>();
+           List<int> list_voisin = new List<int>();
+           var voisins = (SudokuGrid.CellNeighbours[cases / 9][cases % 9]);//liste des voisins de cas en tuple
+           for (int j = 0; j < voisins.Count(); j++)
+           {
+               var voisin = voisins[j];//le iémé voisin en tuple
+               var indexVoisin = voisin.row * 9 + voisin.column;// Voisin en index de 0-81
+               list_voisin.Add(indexVoisin);
+           }
 
-                test = false;
-                        if (indexVoisin == cases)
-                    {
-                  foreach (int xvoisin in list_voisin)
-                        {
-                           if (!ma_list.Contains(xvoisin) && xvoisin != cases)
-                           {
-                                ma_list.Add(indexVoisin);
-                           }
-                        }
-
-                    
-                }
-
-            }
-            return ma_list;
-        }
+            return list_voisin;
+       }
        
         // FONCTION POUR  BACKTRACKING
         public int Nombre_de_conflits(SudokuGrid s, int cellule, int valeur, List<List<int>> possibilites)
