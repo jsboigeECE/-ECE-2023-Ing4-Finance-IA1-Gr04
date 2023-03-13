@@ -16,7 +16,7 @@ namespace Sudoku.ColorSolver
             this.graph = new int[V, V];
         }
 
-        public ColorSolver()
+        public ColorSolver(): this(9)
         {
 
         }
